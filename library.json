@@ -1,0 +1,21 @@
+{
+    "name": "st7789_t4",
+    "version": "0.1.0",
+    "description": "Provides DMA enabled st7789 SPI i/o for the Teensy 4.x",
+    "keywords": ["display", "lcd"],
+    "authors": {
+        "name":"honey the codewitch",
+        "homepage": "https://www.codeproject.com/Members/code-witch"
+    },
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "teensy",
+    "build": {
+        "unflags": "-std=gnu++14"
+    },
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/codewitch-honey-crisis/st7789_t4.git"
+    }
+}
