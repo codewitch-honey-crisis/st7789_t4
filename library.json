@@ -13,6 +13,9 @@
     "build": {
         "unflags": "-std=gnu++14"
     },
+    "dependencies": {
+        "codewitch-honey-crisis/lcd_spi_driver_t4": "^0.1.0" 
+    },
     "repository":
     {
         "type": "git",
