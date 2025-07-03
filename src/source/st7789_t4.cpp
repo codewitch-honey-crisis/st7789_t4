@@ -122,8 +122,8 @@ st7789_t4::st7789_t4(st7789_t4_res_t resolution, uint8_t CS, uint8_t RS, uint8_t
     _bkl = BKL;
     set_dimensions(resolution);
 }
-uint16_t st7789_t4::width() const { return (_rotation&1)?_native_height:_native_width; }
-uint16_t st7789_t4::height() const { return (_rotation&1)?_native_width:_native_height; }
+uint16_t st7789_t4::width() const { return (rotation()&1)?_native_height:_native_width; }
+uint16_t st7789_t4::height() const { return (rotation()&1)?_native_width:_native_height; }
 void st7789_t4::initialize(void) {
     uint8_t  numCommands, numArgs;
 	uint16_t ms;
