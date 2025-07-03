@@ -110,15 +110,13 @@ void st7789_t4::set_dimensions(st7789_t4_res_t resolution) {
         
     }
 }
-st7789_t4::st7789_t4(st7789_t4_res_t resolution, uint8_t CS, uint8_t RS, uint8_t SID, uint8_t SCLK, uint8_t RST, uint8_t BKL) : lcd_spi_driver_t4(40 * 1000 * 1000, CS, RS, SID, SCLK, RST) {
-    _rotation = 0;
+st7789_t4::st7789_t4(st7789_t4_res_t resolution, uint8_t CS, uint8_t RS, uint8_t SID, uint8_t SCLK, uint8_t RST, uint8_t BKL) : lcd_spi_driver_t4(2,true,40 * 1000 * 1000, CS, RS, SID, SCLK, RST) {
     _offset_x = 0;
     _offset_y = 0;
     _bkl = BKL;
     set_dimensions(resolution);
 }
-st7789_t4::st7789_t4(st7789_t4_res_t resolution, uint8_t CS, uint8_t RS, uint8_t RST, uint8_t BKL) : lcd_spi_driver_t4(40 * 1000 * 1000, CS, RS, RST) {
-    _rotation = 0;
+st7789_t4::st7789_t4(st7789_t4_res_t resolution, uint8_t CS, uint8_t RS, uint8_t RST, uint8_t BKL) : lcd_spi_driver_t4(2,true,40 * 1000 * 1000, CS, RS, RST) {
     _offset_x = 0;
     _offset_y = 0;
     _bkl = BKL;
@@ -159,7 +157,6 @@ void st7789_t4::initialize(void) {
         pinMode(_bkl,OUTPUT);
         digitalWrite(_bkl, HIGH);
     }
-    rotation(0);
 }
 void st7789_t4::write_address_window(int x1, int y1, int x2, int y2) {
     x1+=_offset_x;x2+=_offset_x;
@@ -173,7 +170,6 @@ void st7789_t4::write_address_window(int x1, int y1, int x2, int y2) {
     write_command_last(ST7789_RAMWR);
 }
 void st7789_t4::set_rotation(int value) {
-    _rotation = value;
     begin_transaction();
     write_command_last(ST7789_MADCTL);
     switch (value & 3) {

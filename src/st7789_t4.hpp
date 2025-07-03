@@ -14,7 +14,6 @@ class st7789_t4 : public lcd_spi_driver_t4 {
     uint16_t _native_height;
     uint16_t _offset_x;
     uint16_t _offset_y;
-    uint8_t _rotation;
     uint8_t _bkl;
     void set_dimensions(st7789_t4_res_t resolution);
 public:
