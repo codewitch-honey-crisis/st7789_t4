@@ -2,6 +2,8 @@
 
 A DMA enabled SPI driver for ST7789 LCDs. This driver code for communicating with SPI connected ST7789 LCD devices on the Teensy 4.x
 
+This library relies on https://github.com/codewitch-honey-crisis/lcd_spi_driver_t4
+
 ```cpp
 #include <Arduino.h>
 #include "st7789_t4.hpp"
